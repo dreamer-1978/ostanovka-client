@@ -75,11 +75,14 @@ async function fetchChurch() {
 
 async function getSchedule() {
   const urlSchedule = "https://i-hram.ru/schedule/";
-  const response = await axios.get("http://localhost:3000/schedule", {
-    params: {
-      stopping: urlSchedule,
-    },
-  });
+  const response = await axios.get(
+    "https://ostanovka-seregas-projects-86df702c.vercel.app/schedule",
+    {
+      params: {
+        stopping: urlSchedule,
+      },
+    }
+  );
   const data = response.data;
   table.innerHTML = data;
 }
