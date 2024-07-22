@@ -26,4 +26,13 @@
   span {
     @apply text-red-600
   }
+   .table {
+    @apply bg-gray-200 m-2
+  }
+  tr {
+    @apply border-b border-gray-600 p-2
+  }
+  td {
+    @apply p-2
+  }
 }
