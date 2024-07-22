@@ -25,6 +25,7 @@ async function fetchMail() {
         },
       }
     );
+    table.style.display = "none";
     const data = response.data;
     ul.innerHTML = data;
     content.append(ul);
@@ -45,6 +46,7 @@ async function fetchHighway() {
         },
       }
     );
+    table.style.display = "none";
     const data = response.data;
     ul.innerHTML = data;
     content.append(ul);
@@ -65,6 +67,7 @@ async function fetchChurch() {
         },
       }
     );
+    table.style.display = "none";
     const data = response.data;
     ul.innerHTML = data;
     content.append(ul);
