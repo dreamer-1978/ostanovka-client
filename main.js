@@ -83,6 +83,9 @@ async function getSchedule() {
       },
     }
   );
+  if (content.classList.contains('content')) {
+    content.style.display = 'none'
+  }
   const data = response.data;
   table.innerHTML = data;
 }
