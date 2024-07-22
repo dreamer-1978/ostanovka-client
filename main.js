@@ -3,8 +3,10 @@ import axios from "axios";
 const buttonMail = document.querySelector("#mail");
 const buttonHighway = document.querySelector("#highway");
 const buttonChurch = document.querySelector("#church");
+const buttonSchedule = document.querySelector("#schedule");
 const content = document.querySelector(".content");
 const ul = document.createElement("ul");
+const table = document.querySelector(".table");
 
 // navigator.geolocation.getCurrentPosition((position) => {
 //   const lat = position.coords.latitude;
@@ -71,6 +73,18 @@ async function fetchChurch() {
   }
 }
 
+async function getSchedule() {
+  const urlSchedule = "https://i-hram.ru/schedule/";
+  const response = await axios.get("http://localhost:3000/schedule", {
+    params: {
+      stopping: urlSchedule,
+    },
+  });
+  const data = response.data;
+  table.innerHTML = data;
+}
+
 buttonMail.addEventListener("click", fetchMail);
 buttonHighway.addEventListener("click", fetchHighway);
 buttonChurch.addEventListener("click", fetchChurch);
+buttonSchedule.addEventListener("click", getSchedule);
