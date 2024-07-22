@@ -8,11 +8,6 @@ const content = document.querySelector(".content");
 const ul = document.createElement("ul");
 const table = document.querySelector(".table");
 
-// navigator.geolocation.getCurrentPosition((position) => {
-//   const lat = position.coords.latitude;
-//   const lon = position.coords.longitude;
-//   console.log(lat, lon)
-// })
 
 async function fetchMail() {
   const stoppingMail = `https://yandex.ru/maps/213/moscow/stops/stop__9643717/?ll=37.826208%2C55.777070&tab=overview&z=16`;
@@ -25,7 +20,6 @@ async function fetchMail() {
         },
       }
     );
-    table.style.display = "none";
     const data = response.data;
     ul.innerHTML = data;
     content.append(ul);
@@ -46,7 +40,6 @@ async function fetchHighway() {
         },
       }
     );
-    table.style.display = "none";
     const data = response.data;
     ul.innerHTML = data;
     content.append(ul);
@@ -67,7 +60,6 @@ async function fetchChurch() {
         },
       }
     );
-    table.style.display = "none";
     const data = response.data;
     ul.innerHTML = data;
     content.append(ul);
