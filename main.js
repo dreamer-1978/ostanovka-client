@@ -68,6 +68,26 @@ async function fetchChurch() {
     console.error(error);
   }
 }
+async function getDom() {
+  const urlDom =
+    "https://yandex.ru/maps/213/moscow/stops/stop__9646053/?ll=37.888351%2C55.747731&tab=overview&z=18.06";
+  try {
+      const response = await axios.get(
+        "https://ostanovka-seregas-projects-86df702c.vercel.app/data",
+        {
+          params: {
+            stopping: urlDom,
+          },
+        }
+      );
+    const data = response.data;
+    ul.innerHTML = data;
+    content.append(ul);
+  } catch (error) {
+    console.error(error)
+  }
+
+}
 
 async function getSchedule() {
   const urlSchedule = "https://i-hram.ru/schedule/";
@@ -85,23 +105,7 @@ async function getSchedule() {
   const data = response.data;
   table.innerHTML = data;
 }
-async function getDom() {
-  const urlDom =
-    "https://yandex.ru/maps/213/moscow/stops/stop__9646053/?ll=37.888351%2C55.747731&tab=overview&z=18.06";
-  const response = await axios.get(
-    "https://ostanovka-seregas-projects-86df702c.vercel.app/data",
-    {
-      params: {
-        stopping: urlDom,
-      },
-    }
-  );
-  if (content.classList.contains("content")) {
-    content.style.display = "none";
-  }
-  const data = response.data;
-  table.innerHTML = data;
-}
+
 
 buttonMail.addEventListener("click", fetchMail);
 buttonHighway.addEventListener("click", fetchHighway);
