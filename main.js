@@ -7,7 +7,7 @@ const buttonSchedule = document.querySelector("#schedule");
 const content = document.querySelector(".content");
 const ul = document.createElement("ul");
 const table = document.querySelector(".table");
-const buttonDom = document.querySelector(".dom");
+const buttonDom = document.querySelector("#dom");
 
 
 async function fetchMail() {
