@@ -7,6 +7,7 @@ const buttonSchedule = document.querySelector("#schedule");
 const content = document.querySelector(".content");
 const ul = document.createElement("ul");
 const table = document.querySelector(".table");
+const buttonDom = document.querySelector(".dom");
 
 
 async function fetchMail() {
@@ -84,8 +85,26 @@ async function getSchedule() {
   const data = response.data;
   table.innerHTML = data;
 }
+async function getDom() {
+  const urlSchedule =
+    "https://yandex.ru/maps/213/moscow/stops/stop__9646053/?ll=37.888351%2C55.747731&tab=overview&z=18.06";
+  const response = await axios.get(
+    "https://ostanovka-seregas-projects-86df702c.vercel.app/schedule",
+    {
+      params: {
+        stopping: urlSchedule,
+      },
+    }
+  );
+  if (content.classList.contains("content")) {
+    content.style.display = "none";
+  }
+  const data = response.data;
+  table.innerHTML = data;
+}
 
 buttonMail.addEventListener("click", fetchMail);
 buttonHighway.addEventListener("click", fetchHighway);
 buttonChurch.addEventListener("click", fetchChurch);
 buttonSchedule.addEventListener("click", getSchedule);
+buttonDom.addEventListener("click", getDom);
