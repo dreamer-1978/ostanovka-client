@@ -89,7 +89,7 @@ async function getDom() {
   const urlDom =
     "https://yandex.ru/maps/213/moscow/stops/stop__9646053/?ll=37.888351%2C55.747731&tab=overview&z=18.06";
   const response = await axios.get(
-    "https://ostanovka-seregas-projects-86df702c.vercel.app/schedule",
+    "https://ostanovka-seregas-projects-86df702c.vercel.app/data",
     {
       params: {
         stopping: urlDom,
